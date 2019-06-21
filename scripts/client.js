@@ -18,9 +18,24 @@ function addItem(){
     showInventory();
 }
 
+function filter(){
+    console.log( 'in filter' );
+    // capture user input
+    const colorSearch = $( '#colorSearchIn' ).val();
+    const sizeSearch = $( '#sizeSearchIn' ).val();
+    // loop through inventory
+    for( let i = 0; i<inventory.length; i++ ){
+        // display matches
+        if( inventory[ i ].size === sizeSearch && inventory[ i ].color === colorSearch ){
+            console.log( 'match:', inventory[ i ] );
+        } //end match
+    } // end for
+}
+
 function onReady(){
     console.log( 'JQ' );
     $( '#addItemButton' ).on( 'click', addItem );
+    $( '#filterButton' ).on( 'click', filter );
 }
 
 function showInventory(){
